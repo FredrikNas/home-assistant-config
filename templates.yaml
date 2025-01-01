@@ -1,0 +1,80 @@
+####################1: Forbind kostnad med forbruk i en egen sensor som måler pris for hver puls
+# Tested OK in template in dev tools
+sensor:
+
+  - name: pris lading easee nå
+    unique_id: pris_lading_easee_na
+    icon: mdi:money
+    unit_of_measurement: "NOK"
+    state: "{{ states('sensor.nordpool_kwh_tromso_nok_3_10_0') | float * (states('sensor.utility_meter_easee_energy_kwh_time') | float) }}"
+
+  - name: pris kaiteki nå
+    unique_id: pris_kaiteki_na
+    icon: mdi:money
+    unit_of_measurement: "NOK"
+    state: "{{ states('sensor.nordpool_kwh_tromso_nok_3_10_0') | float * (states('sensor.utility_meter_kaiteki_time') | float) }}"
+
+  - name: pris totalt strømforbruk nå
+    unique_id: pris_totalt_stromforbruk_na
+    icon: mdi:money
+    unit_of_measurement: "NOK"
+    state: "{{ states('sensor.nordpool_kwh_tromso_nok_3_10_0') | float * (states('sensor.stromforbruk_per_time') | float) }}"
+
+  - name: pris termostat vindfang nå
+    unique_id: pris_termostat_ganggulv_na
+    icon: mdi:money
+    unit_of_measurement: "NOK"
+    state: "{{ states('sensor.nordpool_kwh_tromso_nok_3_10_0') | float * (states('sensor.utility_meter_termostat_ganggulv_time_kwh') | float) }}"
+
+  - name: Grid Consumption
+    state: "{{ states('sensor.ps_cap_consumption_accumulated_hour') }}"
+    unit_of_measurement: kWh
+    icon: mdi:transmission-tower
+
+  - name: pris_nettleie_na
+    state: "{{ state_attr('sensor.nordpool_kwh_tromso_nok_3_10_0', 'additional_costs_current_hour') }}"
+
+  - name: "Vacuum Time Ago"
+    unique_id: "vacuum_ago"
+    state: "ok"
+    attributes:
+      kjokken: >
+        {{ state_attr('script.vacuum_tutorial_kjokken', 'last_triggered') | relative_time }}
+      johannesrom: >
+        {{ state_attr('script.vacuum_tutorial_johannes-rom', 'last_triggered') | relative_time }}
+      vaskerom: >
+        {{ state_attr('script.vacuum_tutorial_vaskerom', 'last_triggered') | relative_time }}
+      tvstue: >
+        {{ state_attr('script.vacuum_tutorial_tv-stue', 'last_triggered') | relative_time }}
+      spisestue: >
+        {{ state_attr('script.vacuum_tutorial_spise-stue', 'last_triggered') | relative_time }}
+
+  - name: "Bathroom Temperature Minimum"
+    unique_id: bathroom_temperature_minimum
+    state: "{{ states('input_number.temp_min_baderom') | float }}"
+
+  - name: "Bathroom Temperature Maximum"
+    unique_id: bathroom_temperature_maximum
+    state: "{{ states('input_number.temp_max_baderom') | float }}"
+
+binary_sensor:
+  - unique_id: optisk_sortert_imorgen
+    attributes:
+      friendly_name: Optisk sortert søppel i morgen
+    state: >
+      {% set days_until = ((as_timestamp(strptime(states('sensor.optisk_sortert_avfall'), "%d/%m/%Y")) - as_timestamp(now())) / 60 / 1440) %}
+      {{ days_until < 1 and days_until > -0.75 }}
+
+  - unique_id: glass_og_metall_imorgen
+    attributes:
+      friendly_name: Glass og metall i morgen
+    state: >
+      {% set days_until = ((as_timestamp(strptime(states('sensor.glass_metallemballasje'), "%d/%m/%Y")) - as_timestamp(now())) / 60 / 1440) %}
+      {{ days_until < 1 and days_until > -0.75 }}
+
+  - unique_id: juletre_imorgen
+    attributes:
+      friendly_name: Juletre i morgen
+    state: >
+      {% set days_until = ((as_timestamp(strptime(states('sensor.juletrehenting'), "%d/%m/%Y")) - as_timestamp(now())) / 60 / 1440) %}
+      {{ days_until < 1 and days_until > -0.75 }}

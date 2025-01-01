@@ -1,0 +1,1346 @@
+- id: '1658236084070'
+  name: 'Lås opp døren: '
+  entities:
+    automation.las_opp_dor:
+      friendly_name: Lås opp dør
+      last_triggered: '2022-07-19T14:05:16.854559+00:00'
+      mode: single
+      current: 0
+      id: '1658237964756'
+      state: 'on'
+  icon: mdi:door-closed-lock
+  metadata:
+    automation.las_opp_dor:
+      entity_only: true
+- id: '1660007309413'
+  name: Lav - Kjøkken
+  entities:
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 51
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 51
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr1_u_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:32:54+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 142
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr1_u-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr2_i_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:32:56+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 29
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr2_I-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr_3_ii_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:32:58+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 25
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      icon: mdi:led-strip
+      friendly_name: led_strip_kjøkken_gr_3_II-namron
+      supported_features: 44
+      state: 'on'
+    light.dimmerkontroller_kjokken_vinduer_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:32:46+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 25
+      power_on_behavior: previous
+      update:
+        installed_version: 49
+        latest_version: 49
+        state: idle
+      update_available: false
+      friendly_name: dimmerkontroller-kjøkken_vinduer-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_benkbelysning_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:32:52+01:00'
+      linkquality: 61
+      power_on_behavior: previous
+      update:
+        installed_version: 56
+        latest_version: 56
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_benkbelysning-namron
+      supported_features: 44
+      state: 'on'
+  icon: mdi:ceiling-light-multiple
+  metadata: {}
+- id: '1669101279364'
+  name: Av - Kjøkken
+  entities:
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'off'
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect:
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'off'
+    light.led_strip_kjokken_gr1_u_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:41:23+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 25
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr1_u-namron
+      supported_features: 44
+      action: ''
+      state: 'off'
+    light.led_strip_kjokken_gr2_i_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:41:23+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 32
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr2_I-namron
+      supported_features: 44
+      state: 'off'
+    light.led_strip_kjokken_gr_3_ii_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:41:23+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 61
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      icon: mdi:led-strip
+      friendly_name: led_strip_kjøkken_gr_3_II-namron
+      supported_features: 44
+      action: ''
+      state: 'off'
+    light.dimmerkontroller_kjokken_vinduer_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:41:23+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 32
+      power_on_behavior: previous
+      update:
+        installed_version: 49
+        latest_version: 49
+        state: idle
+      update_available: false
+      friendly_name: dimmerkontroller-kjøkken_vinduer-namron
+      supported_features: 44
+      action: ''
+      state: 'off'
+    light.led_strip_kjokken_benkbelysning_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:41:23+01:00'
+      linkquality: 61
+      power_on_behavior: previous
+      update:
+        installed_version: 56
+        latest_version: 56
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_benkbelysning-namron
+      supported_features: 44
+      state: 'off'
+  icon: mdi:ceiling-light-multiple
+  metadata: {}
+- id: '1669357817140'
+  name: Hele kjøkkenet - julemodus
+  entities:
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 117
+      hs_color:
+      - 7.654
+      - 95.294
+      rgb_color:
+      - 255
+      - 43
+      - 12
+      xy_color:
+      - 0.6891
+      - 0.3071
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 115
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.6915
+      - 0.3083
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr1_u_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 76
+      linkquality: 15
+      friendly_name: led_strip-kjøkken_gr1_u-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr2_i_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 76
+      linkquality: 54
+      friendly_name: led_strip-kjøkken_gr2_I-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr_3_ii_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 76
+      linkquality: 36
+      friendly_name: led_strip_kjøkken_gr_3_II-namron
+      supported_features: 44
+      state: 'on'
+    light.dimmerkontroller_kjokken_vinduer_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 127
+      linkquality: 51
+      friendly_name: dimmerkontroller-kjøkken_vinduer-namron
+      supported_features: 44
+      state: 'on'
+  icon: mdi:ceiling-light-multiple
+  metadata: {}
+- id: '1699609902099'
+  name: Starte lading fra IOS
+  entities:
+    switch.easee_bkv19_is_enabled:
+      name: Easee BKV19
+      id: EH500298
+      icon: mdi:power-standby
+      friendly_name: Easee BKV19 Charger enabled
+      state: 'on'
+    script.starte_easee_lading_fra_ha:
+      last_triggered: '2023-11-10T09:48:10.252415+00:00'
+      mode: single
+      current: 0
+      icon: mdi:ev-plug-ccs2
+      friendly_name: Starte Easee lading fra HA
+      state: 'off'
+  metadata:
+    script.starte_easee_lading_fra_ha:
+      entity_only: true
+- id: '1727729333829'
+  name: Alle fargede lys til 2700 K
+  entities:
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 206
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_color_lamp_1_2:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-loftstue-Philips
+      supported_features: 44
+      state: 'on'
+    light.hue_color_lamp_1_3:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kontor-Philips
+      supported_features: 44
+      state: 'on'
+    light.hue_color_lamp_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: e27_hue-eos_spisestue-philips
+      supported_features: 44
+      state: 'on'
+  metadata:
+    light.hue_ensis_down_1:
+      entity_only: true
+    light.hue_ensis_up_1:
+      entity_only: true
+    light.hue_color_lamp_1_2:
+      entity_only: true
+    light.hue_color_lamp_1_3:
+      entity_only: true
+    light.hue_color_lamp_1:
+      entity_only: true
+- id: '1732543578457'
+  name: Normal - Stue
+  entities:
+    light.temp_dimmer_stue:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 115
+      last_seen: '2024-11-25T15:45:41+01:00'
+      linkquality: 134
+      power_on_behavior: previous
+      update:
+        installed_version: 58
+        latest_version: 58
+        state: idle
+      update_available: false
+      friendly_name: temp-dimmer-stue
+      supported_features: 44
+      state: 'on'
+  icon: mdi:led-strip
+  metadata:
+    light.temp_dimmer_stue:
+      entity_only: true
+- id: '1732543627629'
+  name: Lav - Stue
+  entities:
+    light.temp_dimmer_stue:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-25T15:44:37+01:00'
+      linkquality: 134
+      power_on_behavior: previous
+      update:
+        installed_version: 58
+        latest_version: 58
+        state: idle
+      update_available: false
+      friendly_name: temp-dimmer-stue
+      supported_features: 44
+      action: ''
+      state: 'on'
+  icon: mdi:led-strip
+  metadata:
+    light.temp_dimmer_stue:
+      entity_only: true
+- id: '1732543665099'
+  name: Av  - Stue
+  entities:
+    light.temp_dimmer_stue:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode:
+      brightness:
+      last_seen: '2024-11-25T15:44:12+01:00'
+      linkquality: 138
+      power_on_behavior: previous
+      update:
+        installed_version: 58
+        latest_version: 58
+        state: idle
+      update_available: false
+      friendly_name: temp-dimmer-stue
+      supported_features: 44
+      state: 'off'
+  icon: mdi:led-strip
+  metadata:
+    light.temp_dimmer_stue:
+      entity_only: true
+- id: '1732543741608'
+  name: Maks - Stue
+  entities:
+    light.temp_dimmer_stue:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:45:13+01:00'
+      linkquality: 138
+      power_on_behavior: previous
+      update:
+        installed_version: 58
+        latest_version: 58
+        state: idle
+      update_available: false
+      friendly_name: temp-dimmer-stue
+      supported_features: 44
+      state: 'on'
+  icon: mdi:led-strip
+  metadata:
+    light.temp_dimmer_stue:
+      entity_only: true
+- id: '1732544346376'
+  name: Normal - Kjøkken
+  entities:
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 102
+      color_temp_kelvin: 2985
+      color_temp: 335
+      hs_color:
+      - 27.85
+      - 57.304
+      rgb_color:
+      - 255
+      - 176
+      - 108
+      xy_color:
+      - 0.498
+      - 0.383
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 92
+      color_temp_kelvin: 2985
+      color_temp: 335
+      hs_color:
+      - 27.85
+      - 57.304
+      rgb_color:
+      - 255
+      - 176
+      - 108
+      xy_color:
+      - 0.498
+      - 0.383
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr1_u_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 128
+      last_seen: '2024-11-26T16:26:56+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 40
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr1_u-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr2_i_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 128
+      last_seen: '2024-11-26T16:25:38+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 32
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr2_I-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr_3_ii_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 51
+      last_seen: '2024-11-26T16:26:48+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 36
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      icon: mdi:led-strip
+      friendly_name: led_strip_kjøkken_gr_3_II-namron
+      supported_features: 44
+      state: 'on'
+    light.dimmerkontroller_kjokken_vinduer_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 128
+      last_seen: '2024-11-26T16:28:16+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 29
+      power_on_behavior: previous
+      update:
+        installed_version: 49
+        latest_version: 49
+        state: idle
+      update_available: false
+      friendly_name: dimmerkontroller-kjøkken_vinduer-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_benkbelysning_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 128
+      last_seen: '2024-11-26T16:29:38+01:00'
+      linkquality: 40
+      power_on_behavior: previous
+      update:
+        installed_version: 56
+        latest_version: 56
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_benkbelysning-namron
+      supported_features: 44
+      state: 'on'
+  icon: mdi:ceiling-light-multiple
+  metadata: {}
+- id: '1732544392429'
+  name: Maks - Kjøkken
+  entities:
+    light.hue_ensis_up_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_opp-philips
+      supported_features: 44
+      state: 'on'
+    light.hue_ensis_down_1:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 6535
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      - prism
+      - sparkle
+      - opal
+      - glisten
+      - unknown
+      - unknown
+      - unknown
+      - unknown
+      - sunrise
+      - sunset
+      supported_color_modes:
+      - color_temp
+      - xy
+      effect: None
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 3521
+      color_temp: 284
+      hs_color:
+      - 27.152
+      - 44.32
+      rgb_color:
+      - 255
+      - 193
+      - 141
+      xy_color:
+      - 0.453
+      - 0.374
+      mode: normal
+      dynamics: none
+      friendly_name: lampe-kjøkkenbord_ned-philips
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr1_u_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:42:17+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 25
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr1_u-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr2_i_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:42:17+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 32
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_gr2_I-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_gr_3_ii_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:42:17+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 61
+      power_on_behavior: previous
+      update:
+        installed_version: 53
+        latest_version: 53
+        state: idle
+      update_available: false
+      icon: mdi:led-strip
+      friendly_name: led_strip_kjøkken_gr_3_II-namron
+      supported_features: 44
+      state: 'on'
+    light.dimmerkontroller_kjokken_vinduer_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:42:17+01:00'
+      level_config:
+        on_level: previous
+      linkquality: 32
+      power_on_behavior: previous
+      update:
+        installed_version: 49
+        latest_version: 49
+        state: idle
+      update_available: false
+      friendly_name: dimmerkontroller-kjøkken_vinduer-namron
+      supported_features: 44
+      state: 'on'
+    light.led_strip_kjokken_benkbelysning_namron:
+      effect_list:
+      - blink
+      - breathe
+      - okay
+      - channel_change
+      - finish_effect
+      - stop_effect
+      supported_color_modes:
+      - brightness
+      effect:
+      color_mode: brightness
+      brightness: 255
+      last_seen: '2024-11-25T15:42:17+01:00'
+      linkquality: 61
+      power_on_behavior: previous
+      update:
+        installed_version: 56
+        latest_version: 56
+        state: idle
+      update_available: false
+      friendly_name: led_strip-kjøkken_benkbelysning-namron
+      supported_features: 44
+      state: 'on'
+  icon: mdi:ceiling-light-multiple
+  metadata: {}

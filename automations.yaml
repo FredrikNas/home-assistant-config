@@ -1,0 +1,122 @@
+- id: '1658234010386'
+  alias: Unlock Door via Notification
+  description: Unlock the door when a notification is confirmed
+  trigger:
+    - platform: state
+      entity_id:
+        - scene.las_opp_doren
+  action:
+    - service: lock.unlock
+      target:
+        entity_id: lock.hoved_entre
+      data:
+        code: !secret door_unlock_code
+  mode: single
+
+- id: '1658183420111'
+  alias: Turn On Hue Light
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: on_l1
+      discovery_id: 0x60a423fffe659365 action_on_l1
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.hue_ensis_up_1
+  mode: single
+
+- id: '1658184965351'
+  alias: Turn On Hue Light Down
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: on_l2
+      discovery_id: 0x60a423fffe659365 action_on_l2
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.hue_ensis_down_1
+  mode: single
+
+- id: '1658185058880'
+  alias: Turn Off Hue Light Down
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: off_l2
+      discovery_id: 0x60a423fffe659365 action_off_l2
+  condition: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.hue_ensis_down_1
+  mode: single
+
+- id: '1658185172980'
+  alias: Turn Off Hue Light Up
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: off_l1
+      discovery_id: 0x60a423fffe659365 action_off_l1
+  condition: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.hue_ensis_up_1
+  mode: single
+
+- id: '1676999065756'
+  alias: Increase Brightness on All Kitchen Lights
+  description: Adjust brightness of all kitchen lights upwards
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: on_l4
+      discovery_id: 0x60a423fffe659365 action_on_l4
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.led_strip_kjokken_gr1_u_namron
+          - light.led_strip_kjokken_gr2_i_namron
+          - light.led_strip_kjokken_gr_3_ii_namron
+  mode: single
+
+- id: '1676999234334'
+  alias: Decrease Brightness on All Kitchen Lights
+  description: Adjust brightness of all kitchen lights downwards
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 788e62c78f505c4de31feeab6b6324f5
+      type: action
+      subtype: off_l4
+      discovery_id: 0x60a423fffe659365 action_off_l4
+  condition: []
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.led_strip_kjokken_gr1_u_namron
+          - light.led_strip_kjokken_gr2_i_namron
+          - light.led_strip_kjokken_gr_3_ii_namron
+  mode: single

@@ -1,0 +1,71 @@
+##nordpool custom kode
+#- platform: nordpool
+#  region: "NO4"
+#  VAT: false
+#  additional_costs: '{% set price2024 = {
+#  "forbruksavgift": 0.1541,
+#  "energifondet": 0.01,
+#  "paaslag": -0.05,
+#  "energi_vinter_natt": 0.099,
+#  "energi_vinter_dag": 0.199,
+#  "energi_sommer_natt": 0.099,
+#  "energi_sommer_dag": 0.199,
+#  } %}
+#  {% if now().year > 2030 %}
+#  {{ 0 }}
+#  {% else %}
+#  {% if now().month >= 5 and now().month < 11 %}
+#  {% if now().hour <= 6 or now().hour >= 22 %}
+#  {{ price2023.forbruksavgift + price2023.energifondet + price2023.paaslag + price2023.energi_sommer_natt | float}}
+#  {% else %}
+#  {{ price2023.forbruksavgift + price2023.energifondet + price2023.paaslag + price2023.energi_sommer_dag | float}}
+#  {% endif %}
+#  {% else %}
+#  {% if now().hour <= 6 or now().hour >= 22 %}
+#  {{ price2023.forbruksavgift + price2023.energifondet + price2023.paaslag + price2023.energi_vinter_natt | float}}
+#  {% else %}
+#  {{ price2023.forbruksavgift + price2023.energifondet + price2023.paaslag + price2023.energi_vinter_dag | float}}
+#  {% endif %}
+#  {% endif %}
+#  {% endif %}'
+
+#Consumption beregning til nordpool/forbruksgrafer
+- platform: filter
+  name: "filtered consumption"
+  entity_id: sensor.power_blaklokkevegen_19
+  filters:
+    - filter: throttle
+      window_size: 4
+    - filter: outlier
+      window_size: 4
+      radius: 2.0
+    - filter: lowpass
+      time_constant: 10
+
+#Min renovasjon/remiks tjenester
+- platform: min_renovasjon
+  fraction_id:
+    - 1
+    - 4
+    - 6
+#
+#- platform: energytariff
+#  entity_id: "sensor.accumulated_consumption_blaklokkevegen_19"
+#  target_energy: 10
+#  levels:
+#  - name: "Trinn 1: 0-2 kWh"
+#    threshold: 2
+#    price: 73
+#  - name: "Trinn 2: 2-5 kWh"
+#    threshold: 5
+#    price: 173
+#  - name: "Trinn 2: 5-10 kWh"
+#    threshold: 10
+#    price: 342
+#  - name: "Trinn 3: 10-15 kWh"
+#    threshold: 15
+#    price: 511
+#  - name: "trinn 4: 15-20 kWh"
+#    threshold: 20
+#    price: 680
+

@@ -1,0 +1,224 @@
+'1658234010386':
+  use_blueprint:
+    path: home-assistant/confirmable_notification_two_devices.yaml
+    input:
+      notify_device: 325a34449a9709cb2962e331e8ec2ff0
+      notify_device_2: 12344dd20c8d8a8ad334d19862050389
+      title: Låse opp ytterdør? (Hold inn for valg)
+      confirm_action:
+      - action: lock.unlock
+        metadata: {}
+        data:
+          code: '121416'
+        target:
+          entity_id: lock.hoved_entre
+      message: Ønsker du å låse opp ytterdøren?
+      confirm_text: Lås opp
+  mode: single
+  alias: Låse opp dør? (confirmable notification)
+  icon: mdi:door-closed-lock
+las_opp_dor_kommando_fra_ios_shortcuts:
+  alias: Lås opp dør (kommando fra IOS shortcuts)
+  sequence:
+  - service: switch.toggle
+    data: {}
+    target:
+      entity_id: switch.yale_doorman_las
+  mode: single
+overstyr_ladeskjema_for_easee_bot_nr:
+  alias: Overstyr ladeskjema for easee bot (NR)
+  sequence:
+  - service: easee.action_command
+    data:
+      device_id: 7495b18040950d28f862eadeb0bd59b8
+      action_command: override_schedule
+  mode: single
+  icon: mdi:car-electric
+starte_easee_lading_fra_ha:
+  alias: Starte Easee lading fra HA
+  sequence:
+  - service: easee.action_command
+    data:
+      device_id: 7495b18040950d28f862eadeb0bd59b8
+      action_command: override_schedule
+  - wait_for_trigger:
+    - platform: device
+      device_id: 7495b18040950d28f862eadeb0bd59b8
+      domain: easee
+      entity_id: sensor.easee_bkv19_status
+      type: charging
+    timeout:
+      hours: 0
+      minutes: 0
+      seconds: 20
+      milliseconds: 0
+    continue_on_timeout: false
+  - service: notify.varselgruppe_voksne
+    metadata: {}
+    data:
+      message: Bilen lader nå
+      title: 'Easee Home: '
+  mode: single
+  icon: mdi:ev-plug-ccs2
+vacuum_vaskerom_2:
+  alias: 'Rolf - Støvsug: Vaskerom'
+  sequence:
+  - data:
+      command: app_segment_clean
+      params:
+      - segments:
+        - 19
+        repeat: 1
+    target:
+      entity_id: vacuum.rolf
+    action: vacuum.send_command
+  mode: single
+  description: Legger til støvsugning av vaskerommet til programmet i Home assistant
+  icon: mdi:robot-vacuum
+vacuum_kjokken_2:
+  alias: 'Rolf - Støvsug: Kjøkken'
+  sequence:
+  - data:
+      command: app_segment_clean
+      params:
+      - segments:
+        - 17
+        repeat: 1
+    target:
+      entity_id: vacuum.rolf
+    action: vacuum.send_command
+  mode: single
+  description: Legger til støvsugning av kjøkken til støvsuger aktiviteter startet
+    fra Home assistant
+  icon: mdi:robot-vacuum
+vacuum_johannes_rom_2:
+  alias: 'Rolf - Støvsug: Johannes rom'
+  sequence:
+  - data:
+      command: app_segment_clean
+      params:
+      - segments:
+        - 20
+        repeat: 1
+    target:
+      entity_id: vacuum.rolf
+    action: vacuum.send_command
+  mode: single
+  description: Legger til Johannes rom i støvsuging startet fra Hass
+  icon: mdi:robot-vacuum
+vacuum_spise_stue_2:
+  alias: 'Rolf - Støvsug: Spisestue'
+  sequence:
+  - data:
+      command: app_segment_clean
+      params:
+      - segments:
+        - 18
+        repeat: 1
+    target:
+      entity_id: vacuum.rolf
+    action: vacuum.send_command
+  mode: single
+  description: Legger til spisestue i støvsugning startet fra Hass
+  icon: mdi:robot-vacuum
+vacuum_tv_stue_2:
+  alias: 'Rolf - Støvsug: Tv-stue'
+  sequence:
+  - data:
+      command: app_segment_clean
+      params:
+      - segments:
+        - 16
+        repeat: 1
+    target:
+      entity_id: vacuum.rolf
+    action: vacuum.send_command
+  mode: single
+  description: Legger til tv-stue til søtvsugning startet fra Hacs
+  icon: mdi:robot-vacuum
+vacuum_start:
+  alias: 'Rolf - Støvsug: Starte støvsuging av valgte rom'
+  sequence:
+  - alias: If None
+    if:
+    - condition: state
+      entity_id: input_boolean.vacuum_johannes_rom
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacuum_tv_stue
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacuum_spise_stue
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacuum_kjokken
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.vacuum_vaskerom
+      state: 'off'
+    then:
+    - metadata: {}
+      data: {}
+      action: script.vacuum_all
+  - alias: If kjokken
+    if:
+    - condition: state
+      entity_id: input_boolean.vacuum_kjokken
+      state: 'on'
+    then:
+    - action: script.vacuum_kjokken_2
+      data: {}
+    - wait_template: '{{ is_state(''vacuum.rolf'', ''returning'') }}'
+      continue_on_timeout: true
+  - if:
+    - condition: state
+      entity_id: input_boolean.vacuum_johannes_rom
+      state: 'on'
+    then:
+    - data: {}
+      action: script.vacuum_johannes_rom_2
+    - wait_template: '{{ is_state(''vacuum.rolf'', ''returning'') }}'
+      continue_on_timeout: true
+    alias: If Johannes rom
+  - if:
+    - condition: state
+      entity_id: input_boolean.vacuum_tv_stue
+      state: 'on'
+    then:
+    - data: {}
+      action: script.vacuum_tv_stue_2
+    - wait_template: '{{ is_state(''vacuum.rolf'', ''returning'') }}'
+      continue_on_timeout: true
+    alias: If Tv-stue
+  - if:
+    - condition: state
+      entity_id: input_boolean.vacuum_spise_stue
+      state: 'on'
+    then:
+    - data: {}
+      action: script.vacuum_spise_stue_2
+    - wait_template: '{{ is_state(''vacuum.rolf'', ''returning'') }}'
+      continue_on_timeout: true
+    alias: If Spise stue
+  - if:
+    - condition: state
+      entity_id: input_boolean.vacuum_vaskerom
+      state: 'on'
+    then:
+    - data: {}
+      action: script.vacuum_vaskerom
+    - wait_template: '{{ is_state(''vacuum.rolf'', ''returning'') }}'
+      continue_on_timeout: true
+    alias: If Vaskerom
+  - metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.vacuum_kjokken
+      - input_boolean.vacuum_johannes_rom
+      - input_boolean.vacuum_vaskerom
+      - input_boolean.vacuum_tv_stue
+      - input_boolean.vacuum_spise_stue
+    action: input_boolean.turn_off
+  mode: single
+  description: ''

@@ -1,0 +1,224 @@
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+homeassistant:
+  customize: !include customize.yaml
+  allowlist_external_dirs:
+    - /media/frigate
+
+sensor: !include sensor.yaml
+template: !include templates.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Enabling custom templates/themes
+frontend:
+  themes: !include_dir_merge_named themes/
+
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Min renovasjon/Remiks tjenester
+min_renovasjon:
+  street_name: !secret minrenovasjon_street_name
+  house_no: !secret minrenovasjon_house_no
+  street_code: !secret minrenovasjon_street_code
+  county_id: !secret minrenovasjon_county_id
+  date_format: "%d/%m/%Y"
+
+# Bosch Home Connect devices
+# home_connect:
+#  client_id: !secret bosch_client_id
+#  client_secret: !secret bosch_client_secret
+
+# Varselgrupper (Notify)
+notify:
+  - name: varselgruppe_voksne
+    platform: group
+    services:
+      - service: mobile_app_fredriks_iphone_16_pro_max
+      - service: mobile_app_lenas_iphone_15_promax
+
+  - name: varselgruppe_hele_familien
+    platform: group
+    services:
+      - service: mobile_app_fredriks_iphone_16_pro_max
+      - service: mobile_app_lenas_iphone_15_promax
+      - service: mobile_app_linneas_iphone_12_pro_max
+      - service: mobile_app_johannes_sin_iphone_7
+
+# Yale doorman switch
+switch:
+  - platform: template
+    switches:
+      yale_doorman_las:
+        friendly_name: "Hoveddør"
+        value_template: "{{ is_state('lock.hoved_entre', 'locked') }}"
+        turn_on:
+          service: lock.lock
+          data:
+            entity_id: lock.hoved_entre
+            code: !secret yale_door_lock_code
+        turn_off:
+          service: lock.unlock
+          data:
+            entity_id: lock.hoved_entre
+            code: !secret yale_door_lock_code
+        icon_template: >-
+          {% if is_state('lock.hoved_entre', 'locked') %}
+            mdi:lock
+          {% else %}
+            mdi:lock-open
+          {% endif %}
+
+# Custom Zones
+zone:
+  - name: Slettaelva skole og Karveslettlia barnehage
+    latitude: !secret zone_school_latitude
+    longitude: !secret zone_school_longitude
+    radius: 100
+    icon: mdi:school
+
+  - name: Home
+    latitude: !secret zone_home_latitude
+    longitude: !secret zone_home_longitude
+    radius: 30
+    icon: mdi:account-multiple
+
+# Spotcast
+spotcast:
+  sp_dc: !secret spotcast_sp_dc
+  sp_key: !secret spotcast_sp_key
+  country: NO
+
+# Netatmo
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username: !secret netatmo_username
+  password: !secret netatmo_password
+
+# # Image processing for object detection
+# image_processing:
+#   - platform: codeproject_ai_object
+#     ip_address: localhost
+#     port: 32168
+#     save_file_folder: /config/snapshots/
+#     save_file_format: png
+#     save_timestamped_file: True
+#     always_save_latest_file: True
+#     scale: 0.75
+#     roi_x_max: 0.8
+#     roi_y_max: 0.8
+#     crop_to_roi: True
+#     targets:
+#       - target: person
+#       - target: vehicle
+#         confidence: 60
+#       - target: car
+#         confidence: 40
+#     source:
+#       - entity_id: camera.local_file
+
+input_boolean:
+  teslagreydrawer:
+    name: Tesla Grey Drawer
+    initial: off
+    icon: mdi:arrow-down
+  kids_away_toggle:
+    name: Kids Away Toggle
+  temp_deviation_baderom:
+    name: Temp Deviation Baderom
+
+input_datetime:
+  weekday_vacuum_time:
+    name: "Weekday Vacuum Time"
+    has_time: true
+  weekend_vacuum_time:
+    name: "Weekend Vacuum Time"
+    has_time: true
+
+input_number:
+  baderom_low_threshold:
+    name: Baderom Low Threshold
+    min: 10
+    max: 40
+    step: 0.5
+    unit_of_measurement: "°C"
+  baderom_high_threshold:
+    name: Baderom High Threshold
+    min: 10
+    max: 40
+    step: 0.5
+    unit_of_measurement: "°C"
+  baderom_target_daytime:
+    name: Baderom Target Daytime
+    min: 10
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+  baderom_target_night:
+    name: Baderom Target Night
+    min: 10
+    max: 30
+    step: 0.5
+    unit_of_measurement: "°C"
+  baderom_target_vacation:
+    name: Baderom Target Vacation
+    min: 5
+    max: 25
+    step: 0.5
+    unit_of_measurement: "°C"
+
+# Configuration.yaml addition
+# Add this under any existing content in your configuration.yaml
+
+#Frigate API
+rest_command:
+  frigate_snapshot:
+    url: "http://ccab4aaf-frigate-fa:5000/api/cameras/{{ camera_name }}/snapshot"
+    method: GET # Changed to GET to receive the image directly
+    timeout: 30
+    verify_ssl: false
+
+ios:
+  push:
+    categories:
+      - name: doorbell
+        identifier: "doorbell"
+        actions:
+          - identifier: "OPEN_DOOR"
+            title: "Open Door"
+            activationMode: "background"
+            authenticationRequired: true
+            destructive: false
+          - identifier: "DO_NOTHING"
+            title: "Do Nothing"
+            activationMode: "background"
+            authenticationRequired: false
+            destructive: false
+
+timer:
+  doorbell_pause:
+    duration: "00:30:00"
+    icon: mdi:timer-pause
+#
+#
+#
+#
+#
+#
+#
+#
+#

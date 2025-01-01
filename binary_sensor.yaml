@@ -1,0 +1,23 @@
+
+#Søppelsortering til min renovasjon integrasjonen
+
+  - unique_id: optisk_sortert_imorgen
+    attributes:
+      friendly_name: Optisk sortert søppel i morgen
+    state: >
+      {% set days_until = (( as_timestamp(strptime(states('sensor.optisk_sortert_avfall'), "%d/%m/%Y")) - as_timestamp(now())) | int(default=0)/60/1440) %}
+      {{ days_until < 0.25 and days_until > -0.5 }}
+ 
+  - unique_id: glass_og_metall_imorgen
+    attributes:
+      friendly_name: Glass og metall i morgen
+    state: >
+      {% set days_until = (( as_timestamp(strptime(states('sensor.glass_metallemballasje'), "%d/%m/%Y")) - as_timestamp(now())) | int /60/1440)   %}
+      {{ days_until < 0.25 and days_until > -0.5 }}
+  - unique_id: juletre_imorgen
+    attributes:
+      friendly_name: Juletre i morgen
+    state: >
+       {% set days_until = (( as_timestamp(strptime(states('sensor.juletrehenting'), "%d/%m/%Y")) - as_timestamp(now())) | int /60/1440)   %}
+       {{ days_until < 0.25 and days_until > -0.5 }}
+

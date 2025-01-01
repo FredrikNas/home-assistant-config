@@ -1,0 +1,16 @@
+#4 korrigere enhetene
+
+sensor.kjokken_gulvvarme_time_kostnad:
+  unit_of_measurement: NOK
+sensor.kjokken_gulvvarme_dag_kostnad:
+  unit_of_measurement: NOK
+sensor.kjokken_gulvvarme_uke_kostnad:
+  unit_of_measurement: NOK
+sensor.kjokken_gulvvarme_maned_kostaed:
+  unit_of_measurement: NOK
+sensor.kjokken_gulvvarme_ar_kostnad:
+  unit_of_measurement: NOK
+
+sensor.stromleveranse_total:
+  device_class: energy
+  state_class: total_increasing
